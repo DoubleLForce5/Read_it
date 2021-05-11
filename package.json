@@ -4,7 +4,9 @@
   "description": "## Description Read it(working title) is a web application designed for anyone that is interested in keeping track of their present, past, and future reading endeavors.",
   "main": "sever.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "seed": "node seeds/seed.js"
   },
   "repository": {
     "type": "git",
