@@ -18,9 +18,3 @@ Read it(working title) is a web application designed for anyone that is interest
 On page load, the user will be presented with the sing-in or sign-up page. 
 If the user is not a member they will be required to create an account if they are they will need to sign-in. 
 Then the user will be directed to their profile which will contain the list of books they are currently reading, want to read, and have read. 
-
-
-
-
-
-hello hello hello
