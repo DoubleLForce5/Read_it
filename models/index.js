@@ -12,23 +12,14 @@ Books.belongsTo(Authors, {
   foreignKey: 'author_id',
 });
 
-Books.hasMany(My_List, {
-    foreignKey: 'book_id',
-    onDelete: 'CASCADE',
+Books.belongsToMany(Users, {
+  through: My_List,
+  as: 'reading_list'
 });
 
-Users.hasMany(My_List, {
-    foreignKey: 'user_id',
-    onDelete: 'CASCADE',
+Users.belongsToMany(Books, {
+  through: My_List,
+  as: 'reading_list'
 });
-
-My_List.belongsTo(Books, {
-    foreignKey: 'book_id',
-});
-
-My_List.belongsTo(Users, {
-    foreignKey: 'user_id',
-});
-
 
 module.exports = { Authors, Books, Users, My_List };

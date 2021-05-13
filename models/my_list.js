@@ -5,28 +5,6 @@ class My_List extends Model {}
 
 My_List.init(
   {
-    list_item_id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      primaryKey: true,
-      autoIncrement: true,
-    },
-    user_id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      references: {
-        model: 'users',
-        key: 'user_id',
-    },
-    },
-    book_id: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-        references: {
-            model: 'books',
-            key: 'book_id',
-        },
-      },
     will_read: {
       type: DataTypes.BOOLEAN,
       allowNull: false,
