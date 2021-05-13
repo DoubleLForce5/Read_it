@@ -14,10 +14,18 @@ My_List.init(
     user_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
+      references: {
+        model: 'users',
+        key: 'user_id',
+    },
     },
     book_id: {
         type: DataTypes.INTEGER,
         allowNull: false,
+        references: {
+            model: 'books',
+            key: 'book_id',
+        },
       },
     will_read: {
       type: DataTypes.BOOLEAN,
