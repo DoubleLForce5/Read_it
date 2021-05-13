@@ -12,7 +12,7 @@ Books.init(
       autoIncrement: true,
     },
     isbn: {
-      type: DataTypes.NUMBER,
+      type: DataTypes.STRING,
       allowNull: true,
     },
     title: {
@@ -21,7 +21,7 @@ Books.init(
         unique: true,
       },
     year: {
-      type: DataTypes.NUMBER,
+      type: DataTypes.INTEGER,
       allowNull: true,
     },
     genre: {
