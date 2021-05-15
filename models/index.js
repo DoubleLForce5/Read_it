@@ -10,6 +10,7 @@ Authors.hasMany(Books, {
 
 Books.belongsTo(Authors, {
   foreignKey: 'author_id',
+  allowNull: true
 });
 
 Books.belongsToMany(Users, {
