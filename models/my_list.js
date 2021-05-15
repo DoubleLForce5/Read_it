@@ -16,7 +16,7 @@ My_List.init(
       defaultValue: false,
     },
     has_read: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.BOOLEAN,
         allowNull: false,
         defaultValue: false,
       },
