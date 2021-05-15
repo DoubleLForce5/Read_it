@@ -7,8 +7,7 @@ router.get('/', async (req, res) => {
     booksData = await Books.findAll({
       attributes: ['book_id', 'title'],
       include: [{
-        model: Authors,
-        Users
+        model: Authors
       }]
     });
     res.status(200).json(booksData);
@@ -21,19 +20,18 @@ router.get('/', async (req, res) => {
 // Find book by id 
 router.get('/:id', async (req, res) => {
   try {
-    const bookData = await Books.findByPK(req.params.id, {
+    const bookData = await Books.findByPk(req.params.id, {
       include: [{
-        model: Authors,
-        Users
+        model: Authors
       }]
     });
-    if (!booksData) {
+    if (!bookData) {
       res.status(404).json({
         message: 'No book found with that id'
       });
       return;
     }
-    restore.status(200).json(bookData);
+    res.status(200).json(bookData);
   } catch (err) {
     console.log(err)
     res.status(500).json(err)
@@ -46,10 +44,11 @@ router.post('/', async (req, res) => {
       isbn: req.body.isbn,
       title: req.body.title,
       year: req.body.year,
-      genre: req.body.genre
+      genre: req.body.genre,
+      author_id: req.body.author_id
     })
     .then(book => res.json(book))
-    .cath((err) => {
+    .catch((err) => {
       console.log(err);
       res.status(400).json
     })
@@ -59,7 +58,7 @@ router.post('/', async (req, res) => {
 router.put('/:id', async (req, res) => {
   Books.update(req.body, {
       where: {
-        id: req.params.id
+        book_id: req.params.id
       },
     })
     .then(book => res.json(book))
@@ -70,7 +69,7 @@ router.delete('/:id', async (req, res) => {
   try {
     const bookData = await Books.destroy({
       where: {
-        id: req.params.id
+        book_id: req.params.id
       },
     })
     if (!bookData) {
