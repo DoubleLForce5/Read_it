@@ -15,11 +15,15 @@ Books.belongsTo(Authors, {
 
 Books.belongsToMany(Users, {
   through: My_List,
+  foreignKey: 'book_id',
+  otherKey: 'user_id',
   as: 'reading_list'
 });
 
 Users.belongsToMany(Books, {
   through: My_List,
+  foreignKey: 'user_id',
+  otherKey: 'book_id',
   as: 'reading_list'
 });
 
