@@ -22,12 +22,12 @@ h1 {
     background: #eee;
     margin: auto;
     border: 1px solid #fff;
-    position: absolute;
+    /* position: absolute;
     left: 0;
     right: 0;
     top: 10%
+} */
 }
-
 .form-group {
     position: relative;
     margin-bottom: 15px

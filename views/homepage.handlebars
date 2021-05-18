@@ -1,7 +1,39 @@
-<form class="form login-form">
-        <h1>Read It</h1>
+<h1 class = "text-center"> Welcome to Read It</h1>
+<h3 class = "text-center"> A place to track your love of reading.</h3>
+
+<form class="form signup-form">
+       
         <div class="form-group"> 
-            <input type="email" id = "email-login" class="form-control" placeholder="Username"> 
+            <input type="first-name" id = "firstname-signup" class="form-control" placeholder="First Name"> 
+            <i class="mdi mdi-account"></i> 
+        </div>
+
+        <div class="form-group log-status"> 
+            <input type="last-name" class="form-control" placeholder="Last Name" id="lastname-signup"> <i class="mdi mdi-lock"></i>
+        </div> 
+
+    <div class="form-group"> 
+            <input type="email" id = "email-signup" class="form-control" placeholder="Email"> 
+            <i class="mdi mdi-account"></i> 
+        </div>
+
+        <div class="form-group log-status"> 
+            <input type="password" class="form-control" placeholder="Password" id="password-signup"> <i class="mdi mdi-lock"></i>
+        </div> 
+
+        <span class="alert">Invalid Credentials</span> 
+
+       
+        <button type="submit" class="log-btn"><i class="mdi mdi-account"></i> Sign-Up</button>
+    </form>
+
+
+
+
+<form class="form login-form">
+        
+        <div class="form-group"> 
+            <input type="email" id = "email-login" class="form-control" placeholder="Email"> 
             <i class="mdi mdi-account"></i> 
         </div>
 
@@ -12,7 +44,7 @@
         <span class="alert">Invalid Credentials</span> <a class="link" href="#">Lost your password?</a> 
 
         <button type="submit" class="log-btn"><i class="mdi mdi-account"></i> Log in</button>
-        <button type="submit" class="log-btn"><i class="mdi mdi-account"></i> Sign-Up</button>
+      
     </form>
 
     <script src="/js/login.js"></script>
