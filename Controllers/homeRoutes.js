@@ -2,6 +2,14 @@ const router = require('express').Router();
 const { Users, My_List, Books, Authors } = require('../models');
 const withAuth = require('../utils/auth');
 
+
+router.get('/', (req, res) => {
+  // if session do a res.re.direct to dashboard whatev. 
+  res.render('homepage')
+})
+
+
+
 // this renders 
 
 // router.get('/login', (req, res) => {
@@ -9,10 +17,6 @@ const withAuth = require('../utils/auth');
 //   res.render('login')
 // })
 
-router.get('/', (req, res) => {
-  // if session do a res.re.direct to dashboard whatev. 
-  res.render('homepage')
-})
 
 
 
