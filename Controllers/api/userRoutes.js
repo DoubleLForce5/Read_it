@@ -2,8 +2,7 @@ const router = require('express').Router();
 const { Users } = require('../../models');
 
 // sign-up new user 
-// will need to change /register based on sign up route 
-router.post('/register', async (req, res) => {
+router.post('/signup', async (req, res) => {
   try {
     const userData = await Users.create(req.body);
 
