@@ -2,24 +2,31 @@ const router = require('express').Router();
 const { Users, My_List, Books, Authors } = require('../models');
 const withAuth = require('../utils/auth');
 
-
+// Render home/main page 
 router.get('/', (req, res) => {
-  // if session do a res.re.direct to dashboard whatev. 
   res.render('homepage')
 })
 
+router.get('/dashboard', withAuth, async (req, res) => {
+  try {
+    const usersData = await Users.findByPk(req.session.user_id, {
+      attributes: { exclude: ['password']},
+      include: [{ model: My_List }]
+    });
 
+    const user = usersData.get({ plain: true });
 
-// this renders 
+    res.render('dashboard', {
+      ...user,
+      logged_in: true
+    });
+  } catch(err){
+    console.log(err);
+    res.status(500).json(err)
+  }
+});
 
-// router.get('/login', (req, res) => {
-
-//   res.render('login')
-// })
-
-
-
-
+// determine if you still need. 
 // Render all books on homepage 
 router.get('/', withAuth, async (req, res) => {
   try {
