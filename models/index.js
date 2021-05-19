@@ -1,7 +1,9 @@
 const Authors = require('./authors');
 const Books = require('./books');
+const HasRead = require('./hasRead');
 const Users = require('./users');
-const My_List = require('./my_list');
+const IsReading = require('./IsReading');
+const WillRead = require('./WillRead');
 
 Authors.hasMany(Books, {
   foreignKey: 'author_id',
@@ -14,25 +16,52 @@ Books.belongsTo(Authors, {
 });
 
 Books.belongsToMany(Users, {
-  through: My_List,
+  through: HasRead,
   foreignKey: 'book_id',
   otherKey: 'user_id',
-  as: 'reading_list'
+  as: 'has_read',
 });
 
 Users.belongsToMany(Books, {
-  through: My_List,
+  through: HasRead,
   foreignKey: 'user_id',
   otherKey: 'book_id',
-  as: 'reading_list'
+  as: 'has_read',
+  onDelete: 'CASCADE'
 });
 
-Users.hasOne(My_List, {
-  foreignKey: 'user_id'
-})
+Books.belongsToMany(Users, {
+  through: IsReading,
+  foreignKey: 'book_id',
+  otherKey: 'user_id',
+  as: 'is_reading',
+});
 
-My_List.hasOne(Users, {
-  foreignKey: 'user_id'
-})
+Users.belongsToMany(Books, {
+  through: IsReading,
+  foreignKey: 'user_id',
+  otherKey: 'book_id',
+  as: 'is_reading',
+  onDelete: 'CASCADE'
+});
 
-module.exports = { Authors, Books, Users, My_List };
+Books.belongsToMany(Users, {
+  through: WillRead,
+  foreignKey: 'book_id',
+  otherKey: 'user_id',
+  as: 'will_read',
+});
+
+Users.belongsToMany(Books, {
+  through: WillRead,
+  foreignKey: 'user_id',
+  otherKey: 'book_id',
+  as: 'will_read',
+  onDelete: 'CASCADE'
+});
+
+
+
+
+
+module.exports = { Authors, Books, Users, HasRead, IsReading, WillRead };
