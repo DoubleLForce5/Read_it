@@ -32,7 +32,7 @@ router.get('/', withAuth, async (req, res) => {
   try {
     console.log(listData)
     const listData = await My_List.findAll({
-      include: [{ model: Users, Books, Authors}]
+      include: [{ model: Users, Books, Authors, My_List}]
     });
 
     const list = listData.map((list) => list.get({ plain: true }));
@@ -46,6 +46,7 @@ router.get('/', withAuth, async (req, res) => {
     res.status(500).json(err);
   }
 })
+
 
 module.exports = router;
 

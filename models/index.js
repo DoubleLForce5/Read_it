@@ -27,4 +27,12 @@ Users.belongsToMany(Books, {
   as: 'reading_list'
 });
 
+Users.hasOne(My_List, {
+  foreignKey: 'user_id'
+})
+
+My_List.hasOne(Users, {
+  foreignKey: 'user_id'
+})
+
 module.exports = { Authors, Books, Users, My_List };

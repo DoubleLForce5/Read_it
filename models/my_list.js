@@ -20,6 +20,14 @@ My_List.init(
         allowNull: false,
         defaultValue: false,
       },
+      user_id: {
+        type: DataTypes.INTEGER,
+        allowNull: true,
+        references: {
+            model: 'users',
+            key: 'user_id',
+        },
+      },
   },
   {
     sequelize,
