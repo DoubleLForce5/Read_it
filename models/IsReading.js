@@ -1,0 +1,34 @@
+const { Model, DataTypes } = require('sequelize');
+const sequelize = require('../config/connection');
+
+class IsReading extends Model {}
+
+IsReading.init(
+  {
+      user_id: {
+        type: DataTypes.INTEGER,
+        allowNull: true,
+        references: {
+            model: 'users',
+            key: 'user_id',
+        },
+      },
+      book_id: {
+        type: DataTypes.INTEGER,
+        allowNull: true,
+        references: {
+            model: 'books',
+            key: 'book_id',
+        },
+      },
+  },
+  {
+    sequelize,
+    timestamps: false,
+    freezeTableName: true,
+    underscored: true,
+    // modelName: 'is_reading',
+  }
+);
+
+module.exports = IsReading;
