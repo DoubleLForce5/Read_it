@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Users, My_List, Books, Authors } = require('../models');
+const { Users, Books, Authors, WillRead } = require('../models');
 const withAuth = require('../utils/auth');
 
 // Render home/main page 
@@ -9,12 +9,14 @@ router.get('/', (req, res) => {
 
 router.get('/dashboard', withAuth, async (req, res) => {
   try {
+    console.log(req.session)
     const usersData = await Users.findByPk(req.session.user_id, {
       attributes: { exclude: ['password']},
-      // include: [{ model: My_List }]
+      include: [{ model: Books,  as: 'has_read' }, { model: Books,  as: 'is_reading' }, { model: Books,  as: 'will_read' } ]
     });
 
     const user = usersData.get({ plain: true });
+    console.log(user)
 
     res.render('dashboard', {
       ...user,
@@ -22,7 +24,7 @@ router.get('/dashboard', withAuth, async (req, res) => {
     });
   } catch(err){
     console.log(err);
-    res.status(500).json(err)
+    res.status(500).end('broken')
   }
 });
 
