@@ -60,9 +60,9 @@
           <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
             <div class="accordion-body">
               <ul>
-                  <li> Book 1</li>
-                  <li>Book 2</li>
-                  <li>Book 3</li>
+                  {{#each is_reading}}
+                  {{title}} "{{year}}"
+                  {{/each}}
               </ul>
             </div>
           </div>
