@@ -1,6 +1,6 @@
 const Authors = require('./authors');
 const Books = require('./books');
-const HasRead = require('./hasRead');
+const HasRead = require('./HasRead');
 const Users = require('./users');
 const IsReading = require('./IsReading');
 const WillRead = require('./WillRead');
