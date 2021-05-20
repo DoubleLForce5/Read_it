@@ -61,7 +61,4 @@ Users.belongsToMany(Books, {
 });
 
 
-
-
-
 module.exports = { Authors, Books, Users, HasRead, IsReading, WillRead };
