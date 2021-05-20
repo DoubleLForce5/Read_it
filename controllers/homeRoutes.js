@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const { Users, Books, Authors, WillRead } = require('../models');
 const withAuth = require('../utils/auth');
+const {format} = require("date-fns"); 
 
 // Render home/main page 
 router.get('/', (req, res) => {
@@ -14,9 +15,12 @@ router.get('/dashboard', withAuth, async (req, res) => {
       attributes: { exclude: ['password']},
       include: [{ model: Books,  as: 'has_read' }, { model: Books,  as: 'is_reading' }, { model: Books,  as: 'will_read' } ]
     });
+  
 
     const user = usersData.get({ plain: true });
-    console.log(user)
+    
+    const dateOfSignup = format(new Date(user.createdAt), 'MMMM, yyyy');
+    console.log(dateOfSignup)
 
     res.render('dashboard', {
       ...user,
