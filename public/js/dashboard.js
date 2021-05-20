@@ -1,6 +1,6 @@
 const bookSearchHandler = async (event) => {
     event.preventDefault();
-    console.log('check1')
+    
     const bookSearchValue = document.querySelector('#book-search-input').value.trim();
 
     if (bookSearchValue) {
@@ -10,10 +10,7 @@ const bookSearchHandler = async (event) => {
                 'Content-Type': 'application/json'
             },
         });
-          console.log('check2')
-        if (response.ok) {
-            console.log(bookSearchValue)
-        } else {
+        if (response.ok) {} else {
             alert('No Book Found');
         }
     }
