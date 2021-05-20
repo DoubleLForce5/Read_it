@@ -1,22 +1,23 @@
 const bookSearchHandler = async (event) => {
     event.preventDefault();
-
-    const bookSearchValue = document.querySelector('#book-search-form').value.trim();
+    console.log('check1')
+    const bookSearchValue = document.querySelector('#book-search-input').value.trim();
 
     if (bookSearchValue) {
-        const response = await fetch('/api/title/:title', { //ADD API ROUTE HERE
+        const response = await fetch(`/api/title/${bookSearchValue}`, { //ADD API ROUTE HERE
             method: 'GET',
-            body: JSON.stringify({ bookSearchValue }),
-            headers: { 'Content-Type': 'application/json' },
-          });
-          console.log('check1')
-          if (response.ok) {
+            headers: {
+                'Content-Type': 'application/json'
+            },
+        });
+          console.log('check2')
+        if (response.ok) {
             console.log(bookSearchValue)
-          } else {
+        } else {
             alert('No Book Found');
-          }
         }
-      };
+    }
+};
 
 
-document.querySelector('#book-search-button').addEventListener('submit', bookSearchHandler);
+document.querySelector('#book-search-button').addEventListener('click', bookSearchHandler);
