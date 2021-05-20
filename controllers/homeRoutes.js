@@ -3,6 +3,7 @@ const { Users, Books, Authors, WillRead } = require('../models');
 const withAuth = require('../utils/auth');
 const {format} = require("date-fns"); 
 
+
 // Render home/main page 
 router.get('/', (req, res) => {
   res.render('homepage')
@@ -24,7 +25,8 @@ router.get('/dashboard', withAuth, async (req, res) => {
 
     res.render('dashboard', {
       ...user,
-      logged_in: true
+      logged_in: true,
+      dateOfSignup: dateOfSignup
     });
   } catch(err){
     console.log(err);
