@@ -38,6 +38,27 @@ router.get('/:id', async (req, res) => {
   }
 });
 
+// // Find book by title 
+// router.get('/:title', async (req, res) => {
+//   try {
+//     const bookData = await Books.findOne({ where: { title: req.params.id }}, {
+//       include: [{
+//         model: Authors
+//       }]
+//     });
+//     if (!bookData) {
+//       res.status(404).json({
+//         message: 'No book found with that Title'
+//       });
+//       return;
+//     }
+//     res.status(200).json(bookData);
+//   } catch (err) {
+//     console.log(err)
+//     res.status(500).json(err)
+//   }
+// });
+
 // Create new book 
 router.post('/', async (req, res) => {
   Books.create({

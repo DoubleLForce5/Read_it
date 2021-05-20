@@ -3,4 +3,5 @@
  {"book_id":3, "isbn":"", "title":"The Return of the King", "genre":"Fantasy", "year":1955.0, "author_id":3},
  {"book_id":4, "isbn":"", "title":"The Adventures of Tom Sawyer", "genre":"Folk", "year":1876.0, "author_id":1},
  {"book_id":5, "isbn":"", "title":"The Lion, the Witch, and the Wardrobe", "genre":"Fantasy", "year":1950.0, "author_id":2},
- {"book_id":6, "isbn":"", "title":"Prince Caspian", "genre":"Fantasy", "year":1951.0, "author_id":2}]
+ {"book_id":6, "isbn":"", "title":"Prince Caspian", "genre":"Fantasy", "year":1951.0, "author_id":2},
+ {"book_id":7, "isbn":"", "title":"Frankenstein", "genre":"Science Fiction", "year":1818.0, "author_id":4}]
