@@ -45,10 +45,10 @@ console.log(userData)
     }
 
     req.session.save(() => {
-      console.log(userData.id)
+      // console.log(userData.id)
       req.session.user_id = userData.user_id;
       req.session.logged_in = true;
-      console.log(req.session)
+      // console.log(req.session)
       res.json({ user: userData, message: 'You are now logged in!' });
     });
 
