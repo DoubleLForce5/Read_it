@@ -25,7 +25,7 @@ router.post('/', async (req, res) => {
 router.post('/login', async (req, res) => {
   try {
     const userData = await Users.findOne({ where: { email: req.body.email}});
-console.log(userData)
+// console.log(userData)
     if(!userData) {
       res
         .status(400)
@@ -44,6 +44,7 @@ console.log(userData)
       return;
     }
 
+    console.log(userData)
     req.session.save(() => {
       // console.log(userData.id)
       req.session.user_id = userData.user_id;
@@ -61,6 +62,8 @@ console.log(userData)
 // logout
 router.post('/logout', (req, res) => {
   if(req.session.logged_in) {
+    console.log("here")
+    console.log(req.session.logged_in)
     req.session.destroy(() => {
       res.status(204).end();
     });
