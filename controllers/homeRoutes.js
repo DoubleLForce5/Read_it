@@ -17,7 +17,6 @@ router.get('/dashboard', withAuth, async (req, res) => {
       include: [{ model: Books,  as: 'has_read' }, { model: Books,  as: 'is_reading' }, { model: Books,  as: 'will_read' } ]
     });
   
-
     const user = usersData.get({ plain: true });
     
     const dateOfSignup = format(new Date(user.createdAt), 'MMMM, yyyy');
