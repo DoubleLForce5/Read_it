@@ -1,17 +1,20 @@
 <link rel="stylesheet" type="text/css" href="/css/homepage.css">
 
+<main>
 
+{{!-- <h1 class="text-center">Welcome to Read It</h1> --}}
+{{!-- <h3 class="text-center">If You've Read It. Track It!</h3> --}}
 
-<h1 class="text-center"> Welcome to Read It</h1>
-<h3 class="text-center"> A place to track your love of reading.</h3>
+<div class="d-flex flex-row align-items-center justify-content-between container mt-5">
+    {{!-- <div class="row"> --}}
+        <div class=" info col-sm-3">
+            <div >
+            <h1>Welcome to Read It!</h1>
+            {{!-- <img class="bookStack" src="assets/bookStack.jpg" alt="stack of books"> --}}
+            </div>
+        </div>
 
-<div class="login container d-flex border rounded mb-12 col-md-12">
-</div>
-
-<div class="container mt-5">
-    <div class="row justify-content-center">
-        <div class="col-md-4 border-end">
-
+        <div class="col-sm-3 border-end">
             <form class="form login-form float-left">
 
                 <div class="form-group">
@@ -24,14 +27,15 @@
                         class="mdi mdi-lock"></i>
                 </div>
 
-                <span class="alert">Invalid Credentials</span> <a class="link" href="#">Lost your password?</a>
+                {{!-- <span class="alert">Invalid Credentials</span> <a class="link" href="#">Lost your password?</a> --}}
 
                 <button type="submit" class="log-btn"><i class="mdi mdi-account"></i> Log in</button>
 
             </form>
         </div>
+    
 
-        <div class="col-md-4">
+        <div class="col-sm-3">
 
             <form class="form signup-form">
 
@@ -51,32 +55,18 @@
                 </div>
 
                 <div class="form-group log-status">
-                    <input type="password" class="form-control" placeholder="Password" id="password-signup"> <i
-                        class="mdi mdi-lock"></i>
+                    <input type="password" class="form-control" placeholder="Password" id="password-signup"> <i class="mdi mdi-lock"></i>
                 </div>
-
-                <span class="alert">Invalid Credentials</span>
-
-
                 <button type="submit" class="log-btn"><i class="mdi mdi-account"></i> Sign-Up</button>
             </form>
         </div>
 
 
 
-    </div>
+    {{!-- </div> --}}
 </div>
-</div>
 
+</main>
 
-
-
-
-
-
-
-
-
-</div>
 
 <script src="/js/login.js"></script>
