@@ -30,6 +30,8 @@ Then the user will be directed to their profile which will contain the list of b
 - CSS 
 - HTML 
 
+![Screen Shot 2021-05-22 at 9 50 19 AM](https://user-images.githubusercontent.com/73543476/119234458-a3a12b80-baf3-11eb-8bf8-99afd2034ba7.png)
+
 ## Link to deployed site
 https://sleepy-savannah-76210.herokuapp.com/
 
