@@ -93,4 +93,4 @@ document.querySelector('#delete-button').addEventListener('click', delBookHandle
 
 document.querySelector('#book-search-button').addEventListener('click', bookSearchHandler);
 
-const here = document.querySelector('#create-button').addEventListener('click', addBookHandler)
+document.querySelector('#create-button').addEventListener('click', addBookHandler);
