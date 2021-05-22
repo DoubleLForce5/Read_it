@@ -28,7 +28,19 @@ const bookSearchHandler = async (event) => {
                 'Content-Type': 'application/json'
             },
         });
-        if (response.ok) {} else {
+        if (response.ok) {              
+          var titleResponse = await response.json()
+
+          console.log(titleResponse)
+
+          var cardContainer = document.querySelector('#collapseTwo');
+
+          var newCard = document.createElement('div');
+          cardContainer.appendChild(newCard);
+          newCard.textContent = titleResponse.title + ' ' + titleResponse.year
+
+          
+        } else {
             alert('No Book Found');
         }
     }
