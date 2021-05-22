@@ -17,71 +17,67 @@
 
 
 const bookSearchHandler = async (event) => {
-    event.preventDefault();
-    
-    const bookSearchValue = document.querySelector('#book-search-input').value.trim();
+  event.preventDefault();
 
-    if (bookSearchValue) {
-        const response = await fetch(`/api/title/${bookSearchValue}`, { //ADD API ROUTE HERE
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-        });
-        if (response.ok) {} else {
-            alert('No Book Found');
-        }
+  const bookSearchValue = document.querySelector('#book-search-input').value.trim();
+
+  if (bookSearchValue) {
+    const response = await fetch(`/api/title/${bookSearchValue}`, { //ADD API ROUTE HERE
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+    });
+    if (response.ok) { } else {
+      alert('No Book Found');
     }
+  }
 };
 
-      const delBookHandler = async (event) => {
-        event.preventDefault();
-        
-    
-        if (event.target.hasAttribute('data-id')) {
-            const id = event.target.getAttribute('data-id');
-            console.log(id);
-            
-        
-            const response = await fetch(`/api/books/${id}`, {
-              method: 'DELETE',
-            });
-           
-            if (response.ok) {
-              document.location.replace('/dashboard');
-            } else {
-              alert('Failed to delete project');
-            }
-          }
-        };
+const delBookHandler = async (event) => {
+  event.preventDefault();
 
-        const addBookHandler = async (event) => {
-          event.PreventDefault();
 
-        const title = document.querySelector('#book-title').value.trim();
-        const authorFirstName = document.querySelector('#book-author-first-name').value.trim();
-        const authorLastName = document.querySelector('#book-author-last-name').value.trim();
-            
-        if (title) {
-          const response = await fetch('/api/books', {
-            method: 'POST',
-            body: JSON.stringify({title}),
-            headers: {
-              'Content-Type': 'application/json',
-            },
-            });
-            if (response.ok) {
-              document.location.replace('/dashboard')
-            } else {
-              alert ('Could not create book')
-            }
-        }
-       }
-        
-    
+  if (event.target.hasAttribute('data-id')) {
+    const id = event.target.getAttribute('data-id');
+    console.log(id);
 
-document.querySelector('#delete-button').addEventListener('click', delBookHandler);  
+
+    const response = await fetch(`/api/books/${id}`, {
+      method: 'DELETE',
+    });
+
+    if (response.ok) {
+      document.location.replace('/dashboard');
+    } else {
+      alert('Failed to delete project');
+    }
+  }
+};
+
+const addBookHandler = async (event) => {
+  event.preventDefault();
+  const title = document.querySelector('#book-title').value.trim();
+  if (title) {
+    const response = await fetch(`api/books/`, {
+      method: 'POST',
+      body: JSON.stringify({ title }),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+    if (response.ok) {
+      document.location.reload();
+    } else {
+      alert('Could not create book')
+    }
+  }
+}
+
+
+
+document.querySelector('#delete-button').addEventListener('click', delBookHandler);
 
 document.querySelector('#book-search-button').addEventListener('click', bookSearchHandler);
 
-document.querySelector('.new-book-form').addEventListener('submit', addBookHandler) 
+const here = document.querySelector('#create-button').addEventListener('click', addBookHandler)
