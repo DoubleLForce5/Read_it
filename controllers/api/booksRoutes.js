@@ -24,7 +24,6 @@ router.get('/:id', async (req, res) => {
       include: [
         { model: Authors, Users},
       ] 
-    
     },
     )
 
@@ -95,7 +94,6 @@ router.delete('/:id', async (req, res) => {
     const bookData = await Books.destroy({
       where: {
         book_id: req.params.id,
-        user_id: req.session.user_id
       },
       
     });

@@ -34,5 +34,36 @@ const bookSearchHandler = async (event) => {
     }
 };
 
+      const delBookHandler = async (event) => {
+        event.preventDefault();
+        
+    
+        if (event.target.hasAttribute('data-id')) {
+            const id = event.target.getAttribute('data-id');
+            console.log(id);
+            
+        
+            const response = await fetch(`/api/books/${id}`, {
+              method: 'DELETE',
+            });
+           
+            if (response.ok) {
+              document.location.replace('/dashboard');
+            } else {
+              alert('Failed to delete project');
+            }
+          }
+        };
+
+        const addBookHandler = async (event) => {
+          event.PreventDefault();
+
+          if(event.target.hasAttribute('data-id')){
+            
+          }
+        }
+    
+
+document.querySelector('#delete-button').addEventListener('click', delBookHandler);  
 
 document.querySelector('#book-search-button').addEventListener('click', bookSearchHandler);
