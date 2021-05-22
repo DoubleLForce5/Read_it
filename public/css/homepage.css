@@ -1,5 +1,5 @@
 main {
-  background: url(../assets/bookStack.jpg) no-repeat;
+  background: url(../assets/bookStack.jpg) no-repeat center;
   background-size: cover;
   display: grid;
   align-items: center;
@@ -7,9 +7,15 @@ main {
   filter: grayscale(100%); */
   width: 100vw;
   height: 100vh;
-  opacity: 0.7;
+  /* opacity: 0.7; */
   /* justify-content: center; */
   /* height: 100vh; */
+}
+
+.tag-line {
+  color: black;
+  font-family: 'Poppins', sans-serif;
+  font-size: 40px;
 }
 
 .info {
@@ -18,12 +24,110 @@ main {
   height: 20rem;
   box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .2); 
   border-radius: 5px;
-  background-color: rgba(255, 255, 255, .15);
-  
+  background-color: #3d3838;
   backdrop-filter: blur(5px);
+  align-items: center;
+  bleed: 0;
+
 }
 
-/* .bookStack {
-  width: 45%;
-  height: auto;
-} */
+.statement-header-text {
+  font-family: 'Poppins', sans-serif;
+  font-size: 47px;
+  color: white;
+  
+}
+
+.statement-p-text {
+  font-family: 'Roboto', sans-serif;
+  color: white;
+  font-weight: 700;
+}
+
+.login-label {
+  font-family: 'Poppins', sans-serif;
+  color: white;
+  font-weight: 900;
+  font-size: x-large;
+}
+
+.signup-label {
+  font-family: 'Poppins', sans-serif;
+  color: black;
+  font-weight: 900;
+  font-size: x-large;
+}
+
+
+@media screen and (max-width: 375px) {
+.info {
+width: 15rem;
+height: 14rem;
+}
+
+.statement-header-text {
+  font-size: 23px;
+}
+
+.statement-p-text {
+  font-size:16px;
+}
+
+}
+
+@media screen and (max-width: 414px) {
+  .mobile {
+  background: url(../assets/bookStack.jpg) no-repeat center;
+  background-size: cover;
+  display: grid;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  opacity: 0.8;
+  }
+
+  .info {
+    width: 22rem;
+    height: 16rem;
+    }
+    
+.label {
+  margin: 7px
+}
+
+.statement-header-text {
+  font-size: 30px;
+}
+
+.statement-p-text {
+  font-size:13px;
+}
+
+.login-label {
+margin-bottom:  10px;
+font-size: large;
+}
+
+.signup-label {
+  margin-bottom: 10px;
+  font-size: large;
+}
+
+  }
+
+  @media screen and (max-width: 414px) {
+    .info {
+      width: 22rem;
+      height: 12rem;
+      }
+
+    .statement-header-text {
+        font-size: 20px;
+      }
+
+    .statement-p-text {
+      font-size:10px;
+    }
+
+  }
+

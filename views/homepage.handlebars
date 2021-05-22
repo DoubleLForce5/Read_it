@@ -1,20 +1,20 @@
-<link rel="stylesheet" type="text/css" href="/css/homepage.css">
-
-<main>
-
-{{!-- <h1 class="text-center">Welcome to Read It</h1> --}}
-{{!-- <h3 class="text-center">If You've Read It. Track It!</h3> --}}
-
-<div class="d-flex flex-row align-items-center justify-content-between container mt-5">
-    {{!-- <div class="row"> --}}
-        <div class=" info col-sm-3">
-            <div >
-            <h1>Welcome to Read It!</h1>
-            {{!-- <img class="bookStack" src="assets/bookStack.jpg" alt="stack of books"> --}}
+<main class="row .g-0">
+    <div class=" mobile d-flex flex-wrap flex-row align-items-center justify-content-center container mt-5">
+        {{!-- <div class="row"> --}}
+        <div class="info-paragraph info col-sm-3 mx-2">
+            <div>
+                <h1 class="statement-header-text">Welcome to Read It!</h1>
+                <p  class="px-2 align-item-center statement-p-text">The top spot for people that love books.
+                    If you're anything like us, you love reading and often need a place to "shelve" your books. Received
+                    an awesome book recommendation? Place it on your want-to-read shelf! Read something amazing lately?
+                    Put it on your has-read shelf so you can remember to recommend it to others. Reading something
+                    fantastic now? Shelve it under is-reading so when life gets hectic you don't forget about it.
+                </p>
             </div>
         </div>
 
-        <div class="col-sm-3 border-end">
+        <div class="mobileLogin col-sm-3 mx-2">
+            <p class="login-label">Login</p>
             <form class="form login-form float-left">
 
                 <div class="form-group">
@@ -27,17 +27,14 @@
                         class="mdi mdi-lock"></i>
                 </div>
 
-                {{!-- <span class="alert">Invalid Credentials</span> <a class="link" href="#">Lost your password?</a> --}}
-
-                <button type="submit" class="log-btn"><i class="mdi mdi-account"></i> Log in</button>
+                <button type="submit" class="log-btn btn btn-light"><i class="mdi mdi-account"></i> Log in</button>
 
             </form>
         </div>
-    
 
-        <div class="col-sm-3">
-
-            <form class="form signup-form">
+        <div class="col-sm-3 mx-2">
+            <p class="signup-label">Sign up</p>
+            <form class=" mobileSignup form signup-form">
 
                 <div class="form-group">
                     <input type="first-name" id="firstname-signup" class="form-control" placeholder="First Name">
@@ -55,18 +52,15 @@
                 </div>
 
                 <div class="form-group log-status">
-                    <input type="password" class="form-control" placeholder="Password" id="password-signup"> <i class="mdi mdi-lock"></i>
+                    <input type="password" class="form-control" placeholder="Password (8+ char.)" id="password-signup"> <i
+                        class="mdi mdi-lock"></i>
                 </div>
-                <button type="submit" class="log-btn"><i class="mdi mdi-account"></i> Sign-Up</button>
+                <button type="submit" class="log-btn btn btn-light"><i class="mdi mdi-account"></i> Sign-Up</button>
             </form>
         </div>
 
-
-
-    {{!-- </div> --}}
-</div>
+        {{!-- </div> --}}
+    </div>
 
 </main>
-
-
 <script src="/js/login.js"></script>
