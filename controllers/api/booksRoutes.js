@@ -82,7 +82,8 @@ router.post('/', async (req, res) => {
 router.put('/:id', async (req, res) => {
   Books.update(req.body, {
       where: {
-        book_id: req.params.id
+        book_id: req.params.id,
+        author_id: req.params.id,
       },
     })
     .then(book => res.json(book))
