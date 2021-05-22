@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Books, Authors, Users} = require('../../models');
+const { Users, Books, Authors, HasRead, IsReading, WillRead } = require('../../models');
 
 // Find all books 
 router.get('/', async (req, res) => {
@@ -21,10 +21,13 @@ router.get('/', async (req, res) => {
 router.get('/:id', async (req, res) => {
   try {
     const bookData = await Books.findByPk(req.params.id, {
-      include: [{
-        model: Authors
-      }]
-    });
+      include: [
+        { model: Authors, Users},
+      ] 
+    
+    },
+    )
+
     if (!bookData) {
       res.status(404).json({
         message: 'No book found with that id'
@@ -66,7 +69,8 @@ router.post('/', async (req, res) => {
       title: req.body.title,
       year: req.body.year,
       genre: req.body.genre,
-      author_id: req.body.author_id
+      author_id: req.body.author_id,
+      user_id: req.session.user_id
     })
     .then(book => res.json(book))
     .catch((err) => {
@@ -90,9 +94,12 @@ router.delete('/:id', async (req, res) => {
   try {
     const bookData = await Books.destroy({
       where: {
-        book_id: req.params.id
+        book_id: req.params.id,
+        user_id: req.session.user_id
       },
-    })
+      
+    });
+
     if (!bookData) {
       res.status(404).json({
         message: 'No book with this id found '
@@ -100,6 +107,10 @@ router.delete('/:id', async (req, res) => {
       return;
     }
     res.status(200).json(bookData);
+
+    
+
+
   } catch (err) {
     console.log(err)
     res.status(500).json(err);
