@@ -17,19 +17,33 @@
 
 
 const bookSearchHandler = async (event) => {
-  event.preventDefault();
 
-  const bookSearchValue = document.querySelector('#book-search-input').value.trim();
+    event.preventDefault();
+    
+    const bookSearchValue = document.querySelector('#book-search-input').value.trim();
 
-  if (bookSearchValue) {
-    const response = await fetch(`/api/title/${bookSearchValue}`, { //ADD API ROUTE HERE
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-    });
-    if (response.ok) { } else {
-      alert('No Book Found');
+    if (bookSearchValue) {
+        const response = await fetch(`/api/title/${bookSearchValue}`, { //ADD API ROUTE HERE
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+        });
+        if (response.ok) {              
+          var titleResponse = await response.json()
+
+          console.log(titleResponse)
+
+          var cardContainer = document.querySelector('#collapseTwo');
+
+          var newCard = document.createElement('div');
+          cardContainer.appendChild(newCard);
+          newCard.textContent = titleResponse.title + ' ' + titleResponse.year
+
+          
+        } else {
+            alert('No Book Found');
+        }
     }
   }
 };
