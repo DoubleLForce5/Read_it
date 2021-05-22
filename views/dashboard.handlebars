@@ -74,7 +74,7 @@
               <ul>
                 {{#each is_reading}}
                 {{title}} {{year}} <button id="delete-button" class="btn btn-sm btn-danger"
-                  data-id="{{this.book_id}}"><i class="bi bi-x-lg"></i></button> <button id = "move-button" class = "btn btn-sm btn-warning"><i class="bi bi-arrow-up-right"></i></button>
+                  data-id="{{this.book_id}}"><i class="bi bi-x-lg"></i></button> <button id = "move-button" class = "btn btn-sm btn-success"><i class="bi bi-arrow-up-right"></i></button>
                 {{/each}}
               </ul>
             </div>
@@ -138,12 +138,12 @@
         <input class="form-input" type="text" id="book-title" name="book-name" />
       </div>
       <div class="form-group">
-        <label for="book-author-first-name">Book Author Last Name:</label>
-        <input class="form-input" type="text" id="book_author-first-name" name="book-author-first-name" />
+        <label for="book-author-first-name">Book Author First Name:</label>
+        <input class="form-input" type="text" id="book-author-first-name" name="book-author-first-name" />
       </div>
      <div class="form-group">
         <label for="book-author-last-name">Book Author Last Name:</label>
-        <input class="form-input" type="text" id="book_author-last-name" name="book-author-last-name" />
+        <input class="form-input" type="text" id="book-author-last-name" name="book-author-last-name" />
       </div>
       <div class="form-group">
         <button type="submit" class="btn btn-primary">Create</button>
@@ -151,7 +151,7 @@
     </form>
 </div>
 </div>
-<canvas id="myChart" style="width:100%;max-width:700px"></canvas>
+
 
 
 

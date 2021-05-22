@@ -58,12 +58,30 @@ const bookSearchHandler = async (event) => {
         const addBookHandler = async (event) => {
           event.PreventDefault();
 
-          if(event.target.hasAttribute('data-id')){
+        const title = document.querySelector('#book-title').value.trim();
+        const authorFirstName = document.querySelector('#book-author-first-name').value.trim();
+        const authorLastName = document.querySelector('#book-author-last-name').value.trim();
             
-          }
+        if (title) {
+          const response = await fetch('/api/books', {
+            method: 'POST',
+            body: JSON.stringify({title}),
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            });
+            if (response.ok) {
+              document.location.replace('/dashboard')
+            } else {
+              alert ('Could not create book')
+            }
         }
+       }
+        
     
 
 document.querySelector('#delete-button').addEventListener('click', delBookHandler);  
 
 document.querySelector('#book-search-button').addEventListener('click', bookSearchHandler);
+
+document.querySelector('.new-book-form').addEventListener('submit', addBookHandler) 
