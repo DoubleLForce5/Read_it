@@ -88,8 +88,11 @@ const addBookHandler = async (event) => {
 }
 
 
+const deletebtn = document.querySelector('#delete-button')
 
-document.querySelector('#delete-button').addEventListener('click', delBookHandler);
+if (deletebtn){
+  deletebtn.addEventListener('click', delBookHandler);
+}
 
 document.querySelector('#book-search-button').addEventListener('click', bookSearchHandler);
 
