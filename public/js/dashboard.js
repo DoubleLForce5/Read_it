@@ -45,8 +45,7 @@ const bookSearchHandler = async (event) => {
             alert('No Book Found');
         }
     }
-  }
-};
+  };
 
 const delBookHandler = async (event) => {
   event.preventDefault();
